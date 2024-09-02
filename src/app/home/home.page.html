@@ -1,24 +1,39 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/home">Home</ion-item>
+      <ion-item routerLink="/profile">Profile</ion-item>
+      <ion-item routerLink="/settings">Settings</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-menu-button></ion-menu-button> <!-- Botón para abrir el menú -->
     <ion-title>
-      Blank
+      Inicio Sesion
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  
+<ion-content id="main-content" [fullscreen]="true" class="ion-padding">
   <ion-input
-  type="email"
-  fill="solid"
-  label="Email"
-  labelPlacement="floating"
-  helperText="Enter a valid email"
-  errorText="Invalid email"
-  [(ngModel)]="userForm.email"
-  name="email"
-  required
-  email
+    type="email"
+    fill="solid"
+    label="Email"
+    labelPlacement="floating"
+    helperText="Enter a valid email"
+    errorText="Invalid email"
+    [(ngModel)]="userForm.email"
+    name="email"
+    required
+    email
   ></ion-input>
 
   <ion-input
@@ -34,5 +49,4 @@
   ></ion-input>
 
   <ion-button (click)="onSubmit()">Login</ion-button>
-
 </ion-content>

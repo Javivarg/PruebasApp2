@@ -25,3 +25,19 @@
 #container a {
   text-decoration: none;
 }
+
+ion-header {
+  --ion-title-text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+ion-title {
+  text-align: center;
+}
+
+ion-menu-button{
+  --ion-title-text-align: center;
+  display: flex;
+  justify-content: left;
+}
