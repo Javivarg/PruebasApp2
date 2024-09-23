@@ -16,37 +16,66 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-menu-button></ion-menu-button> <!-- Botón para abrir el menú -->
-    <ion-title>
-      Inicio Sesion
-    </ion-title>
+    <ion-title>Inicio Sesion</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content id="main-content" [fullscreen]="true" class="ion-padding">
-  <ion-input
-    type="email"
-    fill="solid"
-    label="Email"
-    labelPlacement="floating"
-    helperText="Enter a valid email"
-    errorText="Invalid email"
-    [(ngModel)]="userForm.email"
-    name="email"
-    required
-    email
-  ></ion-input>
 
-  <ion-input
-    type="password"
-    fill="solid"
-    label="Password"
-    labelPlacement="floating"
-    helperText="Enter your password"
-    errorText="Invalid password"
-    [(ngModel)]="userForm.password"
-    name="password"
-    required
-  ></ion-input>
+  <div *ngIf="selectTabs == 'home'"> <!-- Corrige aquí -->
+    <ion-input
+      type="email"
+      fill="solid"
+      label="Email"
+      labelPlacement="floating"
+      helperText="Enter a valid email"
+      errorText="Invalid email"
+      [(ngModel)]="userForm.email"
+      name="email"
+      required
+      email
+    ></ion-input>
 
-  <ion-button (click)="onSubmit()">Login</ion-button>
+    <ion-input
+      type="password"
+      fill="solid"
+      label="Password"
+      labelPlacement="floating"
+      helperText="Enter your password"
+      errorText="Invalid password"
+      [(ngModel)]="userForm.password"
+      name="password"
+      required
+    ></ion-input>
+    <ion-button (click)="onSubmit()">Login</ion-button>
+  </div>
+  <div *ngIf="selectTabs == 'expLaboral'">
+    <h1>Experiencia laboral</h1>
+  </div>
+  <div *ngIf="selectTabs == 'misDatos'">
+    <h1>Mis datos</h1>
+  </div>
+  <div *ngIf="selectTabs == 'certificados'">
+    <h1>Certificados</h1>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-segment [scrollable]="true" [(ngModel)]="selectTabs"> <!-- Corrige aquí -->
+    <ion-segment-button value="home">
+      <ion-icon name="home"></ion-icon>
+    </ion-segment-button>
+
+    <ion-segment-button value="expLaboral">
+      <ion-icon name="id-card-outline"></ion-icon>
+    </ion-segment-button>
+
+    <ion-segment-button value="misDatos">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-segment-button>
+
+    <ion-segment-button value="certificados">
+      <ion-icon name="document-text-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+</ion-footer>

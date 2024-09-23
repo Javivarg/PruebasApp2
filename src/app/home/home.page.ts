@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { heart, home, pin, documentTextOutline, personCircleOutline, idCardOutline } from 'ionicons/icons';
 
 // Define la interfaz UserForm aquí o impórtala desde otro archivo
 interface UserForm {
@@ -13,22 +15,24 @@ interface UserForm {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
   // Define el modelo de los datos del formulario
   userForm: UserForm = {
     email: '',
     password: ''
   };
 
-  constructor(private router: Router) {}
+  // Inicializa selectTabs
+  selectTabs: string = 'home'; // Asegúrate de que este valor sea el que quieres
+
+  constructor(private router: Router) {
+    addIcons({ heart, home, pin, documentTextOutline, personCircleOutline, idCardOutline });
+  }
 
   // Método para manejar el envío del formulario
   onSubmit() {
     console.log('Email:', this.userForm.email);
     console.log('Password:', this.userForm.password);
     
-    this.router.navigate(['/vista2'])
-
+    this.router.navigate(['/vista2']);
   }
 }
-
